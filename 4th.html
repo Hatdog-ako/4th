@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our 4th Monthsary ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --purple:#9b6acb;
+    --dark-purple:#5b327c;
+    --deep-purple:#302039;
+    --light-purple:#eadcf5;
+    --paper:#fffdf9;
+    --text:#4c3658;
+    --gold:#c6a15b;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    min-height:100vh;
+    background:
+        radial-gradient(circle at top,#76508f 0%,#3c2749 45%,#211827 100%);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:"DM Sans",sans-serif;
+    color:var(--text);
+    overflow:hidden;
+}
+
+/* =========================
+   NOTEBOOK
+========================= */
+
+.book-wrapper{
+    width:min(92vw,520px);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.notebook{
+    position:relative;
+    width:100%;
+    aspect-ratio:0.72;
+    max-height:78vh;
+    perspective:2200px;
+    filter:drop-shadow(0 25px 30px rgba(0,0,0,.45));
+}
+
+/* BACK COVER */
+
+.notebook::before{
+    content:"";
+    position:absolute;
+    inset:5px -8px -5px 5px;
+    border-radius:10px 16px 16px 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4c2865 0%,
+            #6b4087 8%,
+            #49285d 12%,
+            #68407f 90%,
+            #382044 100%
+        );
+
+    box-shadow:
+        8px 10px 0 #24162d,
+        12px 16px 25px rgba(0,0,0,.4);
+
+    z-index:-3;
+}
+
+/* PAGE EDGE */
+
+.notebook::after{
+    content:"";
+    position:absolute;
+    right:-5px;
+    top:15px;
+    bottom:15px;
+    width:9px;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            #eee7e9 0px,
+            #eee7e9 3px,
+            #d2c8cc 4px,
+            #f8f4f3 6px
+        );
+
+    border-radius:0 8px 8px 0;
+    z-index:-1;
+}
+
+/* =========================
+   PAGES
+========================= */
+
+.page{
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(90,55,70,.08),
+            transparent 8%,
+            transparent 92%,
+            rgba(90,55,70,.08)
+        ),
+        repeating-linear-gradient(
+            0deg,
+            rgba(120,90,110,.025) 0px,
+            rgba(120,90,110,.025) 1px,
+            transparent 1px,
+            transparent 5px
+        ),
+        var(--paper);
+
+    border-radius:7px 11px 11px 7px;
+
+    box-shadow:
+        inset 4px 0 8px rgba(80,50,70,.08),
+        inset -3px 0 7px rgba(80,50,70,.06),
+        0 2px 4px rgba(0,0,0,.18);
+
+    transform-origin:left center;
+    transition:
+        transform 1s cubic-bezier(.65,.05,.25,1),
+        box-shadow 1s;
+
+    overflow:hidden;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:32px 38px;
+}
+
+/* REALISTIC INNER PAGE SHADOW */
+
+.page::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    width:20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(55,35,45,.15),
+            rgba(55,35,45,.05),
+            transparent
+        );
+
+    pointer-events:none;
+}
+
+/* PAGE FLIP */
+
+.page.flipped{
+    transform:rotateY(-180deg);
+    pointer-events:none;
+}
+
+/* =========================
+   BINDING
+========================= */
+
+.binding{
+    position:absolute;
+    left:-13px;
+    top:8%;
+    bottom:8%;
+    width:18px;
+    z-index:20;
+    pointer-events:none;
+}
+
+.binding span{
+    display:block;
+    width:16px;
+    height:16px;
+    margin:25px 0;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #eee,
+            #9d9d9d 35%,
+            #555 65%,
+            #222 100%
+        );
+
+    box-shadow:
+        1px 2px 3px rgba(0,0,0,.5),
+        inset -1px -1px 2px rgba(0,0,0,.5);
+}
+
+/* =========================
+   GENERAL CONTENT
+========================= */
+
+.content{
+    width:100%;
+    height:100%;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+    position:relative;
+}
+
+/* =========================
+   COVER
+========================= */
+
+.cover{
+    background:
+        radial-gradient(circle at center,rgba(255,255,255,.15),transparent 60%),
+        linear-gradient(145deg,#c59de0,#8b58b3 55%,#624078);
+    color:white;
+}
+
+.cover::after{
+    content:"";
+    position:absolute;
+    inset:12px;
+    border:1px solid rgba(255,255,255,.45);
+    border-radius:5px;
+}
+
+.cover-content{
+    z-index:2;
+}
+
+.small-title{
+    font-family:"DM Sans";
+    font-size:11px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    opacity:.85;
+    margin-bottom:12px;
+}
+
+.cover h1{
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(38px,9vw,58px);
+    line-height:.9;
+    font-weight:600;
+    margin-bottom:24px;
+}
+
+.cover-heart{
+    font-size:27px;
+    margin:12px;
+}
+
+.cover-photo{
+    width:68%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+
+    padding:7px;
+    background:#fff;
+
+    box-shadow:
+        0 12px 25px rgba(30,15,40,.35);
+
+    transform:rotate(-2deg);
+}
+
+/* =========================
+   HEADINGS
+========================= */
+
+.page-title{
+    font-family:"Cormorant Garamond",serif;
+    font-size:35px;
+    font-weight:600;
+    color:var(--dark-purple);
+    margin-bottom:18px;
+}
+
+.page-subtitle{
+    font-family:"Patrick Hand",cursive;
+    font-size:19px;
+    color:#80648d;
+    margin-bottom:18px;
+}
+
+/* =========================
+   PAGE 2 PHOTOS
+========================= */
+
+.photo-grid{
+    width:100%;
+    max-width:380px;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.photo-card{
+    background:#fff;
+    padding:8px;
+
+    box-shadow:
+        0 5px 12px rgba(60,40,70,.18);
+
+    transform:rotate(-1deg);
+}
+
+.photo-card:nth-child(2){
+    transform:rotate(1.5deg);
+}
+
+.photo-card:nth-child(3){
+    transform:rotate(1deg);
+}
+
+.photo-card:nth-child(4){
+    transform:rotate(-1.5deg);
+}
+
+.photo-card img{
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    display:block;
+}
+
+/* =========================
+   PAGE 3 MUSIC
+========================= */
+
+.music-page{
+    gap:13px;
+}
+
+.music-photo{
+    width:54%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+
+    padding:7px;
+    background:white;
+
+    box-shadow:0 7px 15px rgba(50,30,60,.2);
+
+    transform:rotate(-2deg);
+}
+
+.music-player{
+    width:90%;
+    max-width:350px;
+
+    padding:16px;
+
+    border-radius:15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #4b2860,
+            #2d1939
+        );
+
+    color:white;
+
+    box-shadow:
+        0 8px 18px rgba(40,20,50,.35);
+}
+
+.song-name{
+    font-family:"Cormorant Garamond",serif;
+    font-size:21px;
+    margin-bottom:7px;
+}
+
+.music-player audio{
+    width:100%;
+    height:32px;
+}
+
+.bottom-photos{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    gap:9px;
+}
+
+.bottom-photos img{
+    width:29%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+
+    background:#fff;
+    padding:5px;
+
+    box-shadow:0 4px 9px rgba(50,30,60,.18);
+}
+
+.bottom-photos img:nth-child(1){
+    transform:rotate(-2deg);
+}
+
+.bottom-photos img:nth-child(2){
+    transform:translateY(4px);
+}
+
+.bottom-photos img:nth-child(3){
+    transform:rotate(2deg);
+}
+
+/* =========================
+   PAGE 4 VIDEO
+========================= */
+
+.video-page{
+    gap:15px;
+}
+
+.video-frame{
+    width:90%;
+    max-width:370px;
+
+    background:#fff;
+    padding:8px;
+
+    box-shadow:0 8px 18px rgba(50,30,60,.2);
+}
+
+.video-frame video{
+    display:block;
+    width:100%;
+    max-height:340px;
+    object-fit:cover;
+}
+
+/* =========================
+   PAGE 5 MESSAGE
+========================= */
+
+.message-page{
+    justify-content:center;
+}
+
+.message-paper{
+    width:100%;
+    max-width:390px;
+    height:80%;
+
+    padding:25px 25px;
+
+    overflow-y:auto;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,.75),
+            rgba(255,255,255,.75)
+        );
+
+    border:1px solid #e5d7e9;
+
+    box-shadow:
+        inset 0 0 15px rgba(100,60,120,.06);
+
+    text-align:left;
+}
+
+.message-paper::-webkit-scrollbar{
+    width:4px;
+}
+
+.message-paper::-webkit-scrollbar-thumb{
+    background:#b994ce;
+    border-radius:10px;
+}
+
+.message-paper h2{
+    text-align:center;
+    font-family:"Cormorant Garamond",serif;
+    color:var(--dark-purple);
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.message-paper p{
+    font-family:"Patrick Hand",cursive;
+    font-size:19px;
+    line-height:1.55;
+    margin-bottom:14px;
+}
+
+/* =========================
+   FINAL PAGE
+========================= */
+
+.final-page{
+    background:
+        radial-gradient(circle at center,#d9b8ef,#9c6ac1 65%,#65427c);
+    color:white;
+}
+
+.final-content{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.final-photo{
+    width:62%;
+    aspect-ratio:1/1;
+
+    object-fit:cover;
+
+    border:7px solid white;
+
+    box-shadow:
+        0 12px 25px rgba(40,20,50,.35);
+
+    margin-bottom:20px;
+}
+
+.final-page h2{
+    font-family:"Cormorant Garamond",serif;
+    font-size:39px;
+    font-weight:600;
+}
+
+.final-page p{
+    font-family:"Patrick Hand",cursive;
+    font-size:20px;
+    margin-top:7px;
+}
+
+/* =========================
+   CONTROLS
+========================= */
+
+.controls{
+    margin-top:18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+
+    color:white;
+}
+
+.controls button{
+    border:none;
+
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.15);
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(8px);
+
+    transition:.2s;
+}
+
+.controls button:hover{
+    background:rgba(255,255,255,.28);
+    transform:scale(1.05);
+}
+
+.page-number{
+    font-size:12px;
+    letter-spacing:2px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:500px){
+
+    .notebook{
+        width:92vw;
+        max-height:72vh;
+    }
+
+    .page{
+        padding:25px 28px;
+    }
+
+    .cover h1{
+        font-size:42px;
+    }
+
+    .page-title{
+        font-size:31px;
+    }
+
+    .message-paper{
+        padding:20px;
+    }
+
+    .message-paper p{
+        font-size:18px;
+    }
+
+    .binding span{
+        width:13px;
+        height:13px;
+        margin:20px 0;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="book-wrapper">
+
+<div class="notebook" id="notebook">
+
+    <!-- BINDING -->
+    <div class="binding">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+
+    <!-- ================= PAGE 1 ================= -->
+
+    <section class="page" id="page1" style="z-index:6;">
+
+        <div class="content cover-content">
+
+            <div class="small-title">
+                A little scrapbook for us
+            </div>
+
+            <h1>
+                Our 4th<br>
+                Monthsary
+            </h1>
+
+            <div class="cover-heart">♡</div>
+
+            <img
+                src="p1.jpg"
+                class="cover-photo"
+                alt="Our photo"
+            >
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PAGE 2 ================= -->
+
+    <section class="page" id="page2" style="z-index:5;">
+
+        <div class="content">
+
+            <div class="page-title">
+                Little Moments
+            </div>
+
+            <div class="page-subtitle">
+                some of my favorite memories with you ♡
+            </div>
+
+            <div class="photo-grid">
+
+                <div class="photo-card">
+                    <img src="p2.jpg">
+                </div>
+
+                <div class="photo-card">
+                    <img src="p3.jpg">
+                </div>
+
+                <div class="photo-card">
+                    <img src="p4.jpg">
+                </div>
+
+                <div class="photo-card">
+                    <img src="p5.jpg">
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PAGE 3 ================= -->
+
+    <section class="page" id="page3" style="z-index:4;">
+
+        <div class="content music-page">
+
+            <div class="page-title">
+                Our Little Song
+            </div>
+
+            <img
+                src="p6.jpg"
+                class="music-photo"
+                alt="Memory"
+            >
+
+            <div class="music-player">
+
+                <div class="song-name">
+                    our song ♡
+                </div>
+
+                <audio controls>
+                    <source src="una.mp3" type="audio/mpeg">
+                </audio>
+
+            </div>
+
+            <div class="bottom-photos">
+
+                <img src="p7.jpg">
+
+                <img src="p8.jpg">
+
+                <img src="p9.jpg">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PAGE 4 ================= -->
+
+    <section class="page" id="page4" style="z-index:3;">
+
+        <div class="content video-page">
+
+            <div class="page-title">
+                A Memory To Keep
+            </div>
+
+            <div class="page-subtitle">
+                one of the moments I want to remember ♡
+            </div>
+
+            <div class="video-frame">
+
+                <video controls>
+                    <source
+                        src="v1.mp4"
+                        type="video/mp4"
+                    >
+                </video>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PAGE 5 ================= -->
+
+    <section class="page" id="page5" style="z-index:2;">
+
+        <div class="content message-page">
+
+            <div class="message-paper">
+
+                <h2>
+                    For You, Loveyyy ♡
+                </h2>
+
+                <p>
+                    Helloooo loveyyy kuuuu, it’s our 4th monthsary naaa 🥺🥰🫶🫶🫶<br><br>
+
+Di ko makakalimutan lahat ng details, lahat ng mga nangyari sa atin, mula sa umpisa hanggang sa kung anong meron tayo ngayon. Ang dami na nating pinagdaanan, ang dami na rin nating memories na nabuo, and honestly, ang bilis ng panahon. Parang kailan lang nung nagsisimula pa lang tayo, tapos ngayon 4 months na tayo. Di ko na po papahabain pa… (medyo lang 😗😗😗).
+<br><br>
+
+Di ko talaga makakalimutan nung pumunta po ako dyan last week, nung last day ng intrams nyo. Gabi pa lang po, nasa isip ko na talaga na gusto ko pumunta dyan kahit hindi pa sure kung makakapasok po ako. Tapos ayun na nga, nung last day na ng intrams nyo, nung umaga hindi mo pa po sure kung makakapunta ako. Tapos bigla mong sinabi na pwede po ako. Ang problema naman po, wala kang paper 😭😭😭😭 HAHAHAHA. Salamat na lang po at nakahingi kayo 😭😭😭.
+<br><br>
+
+Kaya ayun, nung may go signal na po ako, dumaan lang po ako sa school namin para mag-attendance tapos diretso na po ako sa Robinson para sumakay ng minibus papunta dyan. Tapos nakarating na po ako ng Trinoma, sakto pagdating ko po doon may UV na paalis na. Hindi ko pa po gets kung saan ako bababa, kaya sabi ko na lang sa sarili ko, “Bahala na.” 😭😭😭
+<br><br>
+
+Sabi ko pa po nun, kapag lumagpas ako, didiretso na lang ako ng Fairview kasi ayoko pong pumunta dyan na walang dalang bulaklak. Kasi utang ko pa po sayo yun nung birthday mo 🥺🌷. Tapos ayun na nga po, naligaw pa ako kakahanap kung saan sasakay papunta sa school nyo 😭😭😭. Pero kahit naliligaw ako, excited na excited na po ako kasi alam kong makikita na po kita🥰🥰🥰
+<br><br>
+
+Medyo natagalan po yung byahe, pero worth it naman po lahat kasi nakasama kita nang medyo matagal 🥰😘🫶. Kahit pagod, kahit naligaw, kahit hindi ko alam kung saan ako bababa, wala akong pake basta makapunta lang po ako sayo🥰😘😘
+<br><br>
+
+Tapos ayun na nga po, nakarating na ako sa school nyo. Parang tumigil yung mundo ko for a moment nung nakita po kita 🥰🥰🥰. Hindi ko alam kung paano ko ie-explain pero sobrang saya ko po nung moment na yun. Hinila mo pa po ako papasok sa may court, tapos natanga pa po ako dun sa may ano 😭😭😭😭 SHUTANGINERLS HAHAHAHA. Hiyang-hiya pa rin po ako kapag naaalala ko yun 😭😭😭
+<br><br>
+
+Tapos pagkatapos po ng laro, nagpunta tayo sa lounge ng school nyo 🥰.Tumambay, Nag-picture-picture tayo tapos kumain na po tayo sa Jollibee 🥰🥰😘😘. Sabi ko pa sayo, di na po ako mahihiya pag nagkita ulit tayo 😘😘😘 nagawa ko naman po😘😘😘 (diba 😗😗)
+<br><br>
+
+After po nun, bumalik tayo sa lounge tapos dun na tayo naglambingan 🥰😘🫶. Paldo ako sa kiss, loveyyy 😋😋🥰😘🫶🫶. Hindi ko pa rin nakakalimutan yun hanggang ngayon. Ramdam ko pa rin yung holding hands natin, yung mga kiss mo sa cheeks ko, at yung mga kiss mo sa lips ko 🥰😘🫶. Ang simple lang siguro nung mga moments na yun para sa ibang tao, pero para sa akin, sobrang special po nun kasi ikaw yung kasama ko🥰🥰😘😘
+<br><br>
+
+Tapos ayun na nga po, di ko na maalala kung ano na yung event nun 😭😗 basta pumasok ulit tayo sa court tapos ayun na nga 🥰😘🫶🫶🫶. Yun yung pinaka-memorable part ng araw ko po. Ang dami nating nagawang memories kahit saglit lang po yun 🥰🫶😘. Ang dami nating pictures, tawanan, lambingan, at moments na gusto ko sanang i-pause yung oras🥺🫶🫶
+<br><br>
+
+Paldo na naman ako sa kiss syempre 😭🥰🫶😘😘😘. Tapos ano… (basta alam mo na yun 😗😗😗 HAHAHAHA) di ko na po kwento 😭
+<br><br>
+
+Pero honestly loveyyy, hinihiling ko po nung mga time na yun na sana bumagal yung oras. Sana mas mahaba pa yung araw para mas matagal pa kitang makasama 🥺🥺🥺. Kasi hindi natin sure kung kailan ulit yung next time na magkikita tayo. Kaya sinusulit ko talaga bawat segundo na kasama kita. Gusto ko lang po na nakakaakbay ako sayo, magkahawak tayo ng kamay, magkatabi tayo, at malapit lang ako sayo 🥺🫶🫶🫶
+<br><br>
+
+Tapos bigla na lang maggagabi na. Kailangan na nating umuwi 🥺. And that's probably the saddest part of that day. Kasi pagkatapos ng lahat ng saya, kailangan na naman nating maghiwalay. Malalayo na naman ako sayo 🥺🥺🥺.
+<br><br>
+
+Lumabas na tayo sa court at pauwi na. Naghanap tayo ng mga jeep na diretso sana ng SM North pero wala talaga tayong makita 😭😭😭. Kaya ayun, nag-UV na lang po tayo. At yun na yung last time nung araw na yun na makakasama kita 🥺.
+<br><br>
+
+Hindi mo siguro alam kung gaano ako nalungkot nung moment na yun. Gusto ko pa sanang mag stay for a while, gusto ko pa sanang makasama ka, gusto ko pa sanang pahabain yung araw natin. Pero kailangan na talaga nating umuwi 🥺🫶
+<br><br>
+
+Pero kahit malungkot yung ending ng araw na yun, sobrang thankful pa rin ako kasi nagkaroon tayo ng chance na magkita at gumawa ng panibagong memories together. Yung araw na yun, isa na naman siya sa mga memories na dadalhin ko habang tumatagal po tayo🥰😘😘
+<br><br>
+
+And loveyyy, gusto kong malaman mo na sobrang thankful ako sayo. Thankful ako kasi dumating ka sa buhay ko. Thankful ako sa lahat ng patience mo, sa pag-intindi mo sa akin, sa mga lambing mo, sa mga tawanan natin, sa mga tampuhan na nalalagpasan natin, at sa lahat ng moments na kahit simple lang, nagiging special dahil ikaw yung kasama ko. 🥺🫶
+<br><br>
+
+Hindi naman po perfect yung relationship natin. May mga times na nagkakamali tayo, may misunderstandings, may tampuhan, may mga araw na hindi tayo okay. Pero kahit ganun, gusto ko pa rin na ikaw yung makasama ko habang inaayos natin lahat. Ayoko pong sumuko agad kapag may problema. Gusto kong matuto tayo pareho, mag-grow tayo together, at piliin pa rin natin ang isa't isa kahit hindi laging madali. 🥺🫶
+<br><br>
+
+Four months pa lang tayo, pero ang dami na nating memories. And I know marami pa tayong pagdadaanan, marami pa tayong lugar na pupuntahan, pagkain na pagsasaluhan, pictures na kukuhanan, tawanan, lambingan, tampuhan na aayusin, at memories na bubuuin together. 🥰🫶
+<br><br>
+
+Sana soon, hindi na maging hadlang sa atin tong distance natin. Sana dumating yung time na hindi na natin kailangang isipin kung kailan ulit tayo magkikita. Yung pwede na kitang makita anytime, makasama ka araw-araw, sabay tayong kakain, matutulog, gigising, mag-aaway sa maliliit na bagay HAHAHAHA, magbabati, magtatawanan, at simpleng magkasama lang sa iisang bahay. 🥺🫶
+<br><br>
+
+Hindi ko alam kung kailan exactly mangyayari yun, pero sana dumating tayo sa araw na yun. Yung dating “miss na kita” magiging “nandito lang ako.” Yung dating “kailan ulit tayo magkikita?” magiging “anong oras ka uuwi?” 🥺🥺🥺
+<br><br>
+
+And hanggang dumating yung araw na yun, titiisin muna natin tong distance. Susulitin natin bawat pagkikita, bawat tawag, bawat chat, bawat “ingat po ikaw,” bawat “imissyousomuchh,” at bawat maliit na moment na meron tayo. Kasi kahit malayo tayo sa isa't isa, gusto kong maramdaman mo na nandito lang ako. 🫶🥺
+<br><br>
+
+Happy 4th monthsary, loveyyy kuuuu 🥺🥰🫶. Thank you for being you, and thank you for staying. I love you so, so, so muchhh, Ishaaa 🥺❤️
+<br><br>
+
+Sana sa mga susunod pang monthsary natin, mas marami pa tayong memories na masasabi na “naalala mo nung…” HAHAHAHA. Sana umabot tayo sa point na sobrang dami na nating memories na hindi na natin kayang bilangin lahat. 🥺🫶
+<br><br>
+
+And hopefully, one day, kapag binalikan natin tong mga messages natin ngayon, matatawa na lang tayo kasi naalala natin kung gaano tayo kalayo noon, kung gaano natin ka-miss ang isa't isa, at kung gaano natin hinintay yung araw na magkasama na tayo sa iisang bahay. 🥺🫶
+<br><br>
+
+Happy 4th monthsary ulit, loveyyy kuuuu. 🥰😘🫶
+<br><br>
+Iloveyousomuchhhh loveyyy kuuu🥰😘😘. More months, more memories, more lambingan, more kisses, more everything with you. 🥺🥰🫶❤️
+<br><br>
+
+And sana… tayo pa rin hanggang sa mga susunod pang chapters. 🥺❤️
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PAGE 6 ================= -->
+
+    <section class="page final-page" id="page6" style="z-index:1;">
+
+        <div class="content final-content">
+
+            <img
+                src="p1.jpg"
+                class="final-photo"
+                alt="Final memory"
+            >
+
+            <h2>
+                Still Choosing You
+            </h2>
+
+            <p>
+                today, tomorrow, and the days after ♡
+            </p>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- CONTROLS -->
+
+<div class="controls">
+
+    <button onclick="previousPage()">‹</button>
+
+    <span class="page-number" id="pageNumber">
+        1 / 6
+    </span>
+
+    <button onclick="nextPage()">›</button>
+
+</div>
+
+</div>
+
+
+<script>
+
+let currentPage = 1;
+const totalPages = 6;
+
+function updatePageNumber(){
+
+    document.getElementById("pageNumber").textContent =
+        currentPage + " / " + totalPages;
+
+}
+
+function nextPage(){
+
+    if(currentPage < totalPages){
+
+        const page =
+            document.getElementById("page" + currentPage);
+
+        page.classList.add("flipped");
+
+        currentPage++;
+
+        updatePageNumber();
+
+    }
+
+}
+
+function previousPage(){
+
+    if(currentPage > 1){
+
+        currentPage--;
+
+        const page =
+            document.getElementById("page" + currentPage);
+
+        page.classList.remove("flipped");
+
+        updatePageNumber();
+
+    }
+
+}
+
+
+/* KEYBOARD */
+
+document.addEventListener("keydown",function(e){
+
+    if(e.key === "ArrowRight"){
+        nextPage();
+    }
+
+    if(e.key === "ArrowLeft"){
+        previousPage();
+    }
+
+});
+
+
+/* SWIPE */
+
+let startX = 0;
+
+document
+    .getElementById("notebook")
+    .addEventListener("touchstart",function(e){
+
+        startX = e.touches[0].clientX;
+
+    });
+
+document
+    .getElementById("notebook")
+    .addEventListener("touchend",function(e){
+
+        let endX = e.changedTouches[0].clientX;
+
+        if(startX - endX > 50){
+            nextPage();
+        }
+
+        if(endX - startX > 50){
+            previousPage();
+        }
+
+    });
+
+</script>
+
+</body>
+</html>
